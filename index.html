@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROFL - Rudel Ofenfrischer Lachanfälle</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="logo">
+      <div id="team-1">
+        <span class="letter">R</span>
+        <span class="letter">O</span>
+      </div>
+      <div id="smile">😄</div>
+      <div id="team-2">
+        <span class="letter">F</span>
+        <span class="letter">L</span>
+      </div>
+      <div id="title">
+        <h1>Rudel Ofen-frischer Lachanfälle</h1>
+      </div>
+      <div id="sidebar">
+        <h2>Spielstand:</h2>
+        <div id="team-lives"></div>
+      </div>
+    </div>
+    <div id="team-presentation" style="display: none">
+      <div id="team-display">
+        <h1 id="team-name"></h1>
+        <div id="team-members"></div>
+      </div>
+      <button id="next-team-button">Nächstes Team</button>
+    </div>
+
+    <div id="progress-bar">
+      <div id="progress-indicator">Phase 1 von 4: Spieler hinzufügen</div>
+    </div>
+
+    <!-- Phase 1: Spieler hinzufügen -->
+    <div id="player-setup">
+      <h2>Spieler hinzufügen</h2>
+      <input type="text" id="player-name" placeholder="Spielername" />
+      <button id="add-player">Hinzufügen</button>
+      <ul id="player-list"></ul>
+      <button id="start-game">Spiel starten</button>
+    </div>
+
+    <!-- Phase 2: Präsentation der Teams -->
+    <div id="team-presentation" style="display: none">
+      <div id="team-name" class="animated-text"></div>
+      <div id="team-members"></div>
+    </div>
+
+    <!-- Phase 3: Runde starten -->
+    <div id="game-phase" style="display: none">
+      <!-- Anzeige des aktuellen Spielers -->
+      <div
+        id="current-player-display"
+        style="text-align: center; margin-bottom: 20px"
+      >
+        <!-- Spieleranimation und Details werden hier dynamisch eingefügt -->
+      </div>
+
+      <!-- Kategorie-Anzeige -->
+      <div
+        id="category-display"
+        style="display: none; text-align: center; margin-bottom: 20px"
+      >
+        <!-- Kategorie wird hier dynamisch eingefügt -->
+      </div>
+
+      <!-- Fortschrittsanzeige der Runde -->
+      <h2 id="round-info" style="text-align: center"></h2>
+
+      <!-- Team- und Spielerinformation (optional) -->
+      <h3 id="team-info" style="text-align: center"></h3>
+      <h4 id="player-info" style="text-align: center"></h4>
+      <div
+        id="button-container"
+        style="display: flex; justify-content: center; margin-top: 20px"
+      >
+        <!-- Die Buttons werden hier dynamisch eingefügt -->
+      </div>
+      <div
+        id="status-container"
+        style="text-align: center; margin-top: 20px"
+      ></div>
+
+      <!-- Button zur Kategorieauswahl -->
+      <div style="text-align: center">
+        <button
+          id="start-category-selection"
+          style="padding: 10px 20px; font-size: 16px"
+        >
+          Kategorie auswählen
+        </button>
+      </div>
+    </div>
+
+    <!-- Phase 4: Kategorie auswählen -->
+    <div id="category-section" style="display: none">
+      <h3>Kategorie auswählen</h3>
+      <div id="slot-machine">
+        <span id="slot-text">Scherzfragen</span>
+      </div>
+      <button id="start-slot">Kategorie auswählen</button>
+    </div>
+
+    <!-- Aufgabe -->
+    <div id="task-section" style="display: none">
+      <h3>Aktuelle Aufgabe</h3>
+      <div id="current-task"></div>
+      <button id="next-player-button" style="display: none">
+        Weiter zum nächsten Spieler
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

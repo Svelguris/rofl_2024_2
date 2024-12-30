@@ -1,0 +1,366 @@
+/* Verbesserungen für Mobile-First und Lachalarm */
+
+/* Allgemeines Layout */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+/* Sidebar für Lebensanzeige: Mobile First */
+#sidebar {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  padding: 10px;
+  background: linear-gradient(180deg, #ff9966, #ff5e62);
+  color: white;
+  box-shadow: none;
+}
+
+#team-lives div {
+  min-width: 120px;
+  margin-right: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#team-lives h3 {
+  font-size: 1rem;
+  color: white;
+  margin: 0;
+}
+
+#team-lives ul {
+  margin: 5px 0 0;
+  padding: 0;
+  list-style: none;
+  color: #ffeedb;
+}
+
+/* Fortschrittsleiste */
+#progress-bar {
+  font-size: clamp(1rem, 2.5vw, 1.2rem); /* Responsive Textgröße */
+  height: 50px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+button {
+  padding: 15px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Lachalarm-Button */
+#laugh-alarm {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff5e62;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 100;
+}
+
+#laugh-alarm:hover {
+  transform: scale(1.2);
+}
+
+#laugh-alarm:active {
+  animation: vibrate 0.2s linear;
+}
+
+@keyframes vibrate {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+}
+
+/* Kategorie und Aufgabe */
+#category-display {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 20px 0;
+  color: #444;
+  background-color: #e9f7ff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#current-task {
+  font-size: 1.2rem;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* Logo Container */
+#logo {
+  text-align: center;
+  margin: 20px;
+  position: relative;
+}
+
+/* Teams */
+#team-1,
+#team-2 {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #007bff;
+  margin: 0 10px;
+  position: relative;
+}
+
+.letter {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffa500, #ff6347);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-family: Arial, sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Smile Icon */
+#smile {
+  font-size: 4rem;
+  color: #ffd700;
+  display: inline-block;
+  margin: 0 20px;
+  animation: bounce 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+/* Titel */
+#title h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 20px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+/* General Styles */
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background-color: #f3f9ff;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin: 20px 0;
+  color: #ff5733;
+  text-shadow: 2px 2px #ffe5b4;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.8em;
+  margin: 15px 0;
+  color: #444;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin: 10px 0;
+  text-align: center;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  margin: 10px;
+  display: inline-block;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.laugh-alarm {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff4d4d;
+  padding: 15px 25px;
+  font-size: 1.2em;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.laugh-alarm:hover {
+  background-color: #cc0000;
+}
+
+/* Logo and Title */
+#logo-container {
+  text-align: center;
+  margin: 10px 0;
+}
+
+#logo {
+  display: inline-block;
+  font-size: 2em;
+  color: #ff5733;
+  text-shadow: 2px 2px #ffe5b4;
+}
+
+/* Player Setup */
+#player-setup {
+  text-align: center;
+  margin: 20px auto;
+}
+
+#player-list {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+#player-list li {
+  margin: 5px 0;
+  padding: 5px;
+  background-color: #eef;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+/* Team Presentation */
+#team-presentation {
+  margin: 20px auto;
+  text-align: center;
+}
+
+#team-display div {
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Game Phase */
+#game-phase {
+  margin: 20px auto;
+  text-align: center;
+}
+
+#team-lives {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #fff5e6;
+  border-radius: 10px;
+}
+
+.team-life {
+  padding: 10px;
+  background-color: #ffe5e5;
+  border: 1px solid #ffcccc;
+  border-radius: 10px;
+  width: 25%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Current Player Display */
+#current-player-display {
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #eef;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 1.5em;
+}
+
+/* Task Section */
+#task-section {
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#current-task {
+  font-size: 1.2em;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Button Container */
+#button-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}

@@ -90,7 +90,30 @@ const nextTeam = () => {
 };
 
 // Nächsten Spieler und Team ermitteln
+/* const getNextTeamAndPlayer = () => {
+  const team = teams[currentTeamIndex];
+  currentTeamIndex = (currentTeamIndex + 1) % teams.length; // Zyklischer Wechsel der Teams
+
+  const player = getNextPlayerForTeam(team.name);
+
+  return { teamName: team.name, player };
+}; */
 const getNextTeamAndPlayer = () => {
+  // Sicherstellen, dass Teams existieren
+  if (teams.length === 0) {
+    console.error("Fehler: Es gibt keine Teams. Wurde das Spiel gestartet?");
+    return { teamName: null, player: null };
+  }
+
+  // Sicherstellen, dass der Index gültig ist
+  if (currentTeamIndex < 0 || currentTeamIndex >= teams.length) {
+    console.error(
+      "Fehler: currentTeamIndex ist außerhalb des gültigen Bereichs."
+    );
+    currentTeamIndex = 0; // Zurücksetzen auf einen gültigen Wert
+  }
+
+  // Team und Spieler ermitteln
   const team = teams[currentTeamIndex];
   currentTeamIndex = (currentTeamIndex + 1) % teams.length; // Zyklischer Wechsel der Teams
 
@@ -146,6 +169,11 @@ const categories = ["Scherzkekse", "Tanzen", "Zeichnen", "Pantomime", "Singen"];
 const selectCategory = () => {
   const { teamName, player } = getNextTeamAndPlayer();
 
+  if (!teamName || !player) {
+    alert("Es gibt keine Teams oder Spieler. Bitte starte das Spiel neu.");
+    return;
+  }
+
   displayCurrentPlayerWithAnimation(teamName, player);
 
   const randomIndex = Math.floor(Math.random() * categories.length);
@@ -158,6 +186,23 @@ const selectCategory = () => {
   fetchTask(selectedCategory);
   updateProgressBar(4, 4);
 };
+
+/*
+const selectCategory = () => {
+  const { teamName, player } = getNextTeamAndPlayer();
+
+  displayCurrentPlayerWithAnimation(teamName, player);
+
+  const randomIndex = Math.floor(Math.random() * categories.length);
+  const selectedCategory = categories[randomIndex];
+
+  document.getElementById(
+    "category-display"
+  ).textContent = `Kategorie: ${selectedCategory}`;
+
+  fetchTask(selectedCategory);
+  updateProgressBar(4, 4);
+}; */
 
 // Aufgabe abrufen
 const fetchTask = (category) => {
